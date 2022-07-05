@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  max_price: 1.5
+  desired_cat: MyString
+  seller: one
+
+two:
+  first_name: MyString
+  max_price: 1.5
+  desired_cat: MyString
+  seller: two

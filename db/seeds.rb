@@ -5,3 +5,35 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+categories = [
+  'Crafts',
+  'Art',
+  'Apparel',
+  'Storage'
+]
+
+10.times do
+  s = Seller.create(
+    first_name: Faker::Name.first_name,
+    email: Faker::Internet.email,
+  )
+end
+  10.times do
+    num_categories = rand(0..categories.length - 1);
+    Buyer.create(
+      first_name: Faker::Name.first_name,
+      max_price: rand(990..1500),
+      desired_cat: categories.sample(num_categories),
+      seller_id: s.id
+  )
+  end
+  50.times do
+    sold = rand(3) === 2
+    p = Product.create(
+      price: Faker::Commerce.price,
+      description: Faker::Commerce.product_name,
+      category: Faker::Commerce.department,
+      sold: sold,
+      seller_id: s.id
+  )
+end
